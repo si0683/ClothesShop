@@ -1,0 +1,223 @@
+<!-- Файл для CodePen: вставьте его ЦЕЛИКОМ в index.pen.html (или в окно HTML).
+     style.css и script.js CodePen подключит сам.
+     Файл создаётся скриптом tools/build.py из index.html — не редактируйте вручную. -->
+
+<!-- ===== ШАПКА: логотип, меню, тема, корзина ===== -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a class="logo" href="#top"><span class="logo-icon">👕</span><span data-lab="name">Urban Style</span></a>
+    <nav class="nav" id="nav">
+      <a href="#about">О нас</a>
+      <a href="#advantages">Преимущества</a>
+      <a href="#products">Коллекция</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <!-- Переключатель темы: ☀️ светлая / 🌙 тёмная -->
+      <button class="theme-switch" id="themeSwitch" type="button" aria-label="Сменить тему"><span class="theme-knob"></span></button>
+      <button class="cart" id="cartButton" type="button" aria-label="Корзина">🛍️<span class="cart-count" id="cartCount">0</span></button>
+      <!-- Кнопка меню для телефона (три полоски) -->
+      <button class="burger" id="burger" type="button" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== 1. ГЛАВНЫЙ ЭКРАН: название, слоган, картинка, кнопка ===== -->
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="badge">Новая коллекция 2026</span>
+        <h1 class="hero-title" data-lab="name">Urban Style</h1>
+        <p class="hero-slogan">Удобная и стильная одежда на каждый день</p>
+        <div class="hero-buttons">
+          <button class="btn" type="button" data-order="">Купить</button>
+          <a class="btn btn-ghost" href="#products">Коллекция</a>
+        </div>
+        <ul class="facts">
+          <li><b>2000+</b><span>вещей</span></li>
+          <li><b>14 дней</b><span>на возврат</span></li>
+          <li><b>XS–XXL</b><span>все размеры</span></li>
+        </ul>
+      </div>
+      <div class="hero-picture">
+        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1100&q=80&auto=format&fit=crop" alt="Интерьер магазина одежды с вешалками">
+        <span class="sticker" data-lab="sticker">SALE до −30%</span>
+      </div>
+    </div>
+    <!-- Сюда JavaScript добавляет эмодзи-дождь (LAB.fallingEmoji) -->
+    <div class="rain" id="rain" aria-hidden="true"></div>
+  </section>
+
+  <!-- ===== 2. О НАС: что это и чем полезно ===== -->
+  <section class="section about reveal" id="about">
+    <div class="container about-inner">
+      <div>
+        <span class="label">О нас</span>
+        <h2 class="section-title">Одежда, в которой удобно</h2>
+        <p>Urban Style — магазин современной городской одежды для подростков и взрослых.</p>
+        <p>Мы подбираем вещи, которые легко сочетать друг с другом, чтобы вы собирали стильные образы без долгих примерок.</p>
+      </div>
+      <div class="about-card">
+        <h3>Чем мы полезны</h3>
+        <ul class="checks">
+          <li>Готовые образы от стилистов</li>
+          <li>Примерка перед покупкой</li>
+          <li>Бесплатный возврат за 14 дней</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. ПРЕИМУЩЕСТВА ===== -->
+  <section class="section section-alt reveal" id="advantages">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Преимущества</span>
+        <h2 class="section-title">Наши преимущества</h2>
+      </div>
+      <div class="grid-3">
+      <article class="adv-card">
+        <div class="adv-icon">🧵</div>
+        <h3>Качество</h3>
+        <p>Плотные ткани, которые не теряют форму после стирки.</p>
+      </article>
+      <article class="adv-card">
+        <div class="adv-icon">📏</div>
+        <h3>Все размеры</h3>
+        <p>От XS до XXL — каждый найдёт свою вещь.</p>
+      </article>
+      <article class="adv-card">
+        <div class="adv-icon">🔄</div>
+        <h3>Лёгкий возврат</h3>
+        <p>Не подошло — вернём деньги за 14 дней.</p>
+      </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. ТОВАРЫ / УСЛУГИ с картинками ===== -->
+  <section class="section reveal" id="products">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Коллекция</span>
+        <h2 class="section-title">Хиты сезона</h2>
+        <p>Вещи, которые разбирают первыми</p>
+      </div>
+      <div class="grid-3">
+      <article class="product">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=900&q=80&auto=format&fit=crop" alt="Парень в сером худи" loading="lazy">
+          <span class="tag">Хит</span>
+        </div>
+        <div class="product-body">
+          <h3>Худи</h3>
+          <p>Мягкий хлопок, свободный крой</p>
+          <div class="product-footer">
+            <span class="price">2 990 ₽</span>
+            <button class="btn btn-small" type="button" data-add="Худи">В корзину</button>
+          </div>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=900&q=80&auto=format&fit=crop" alt="Красный кроссовок" loading="lazy">
+          <span class="tag">Новинка</span>
+        </div>
+        <div class="product-body">
+          <h3>Кроссовки</h3>
+          <p>Лёгкие, для города и спорта</p>
+          <div class="product-footer">
+            <span class="price">5 490 ₽</span>
+            <button class="btn btn-small" type="button" data-add="Кроссовки">В корзину</button>
+          </div>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product-image">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=80&auto=format&fit=crop" alt="Девушка в жёлтом спортивном костюме" loading="lazy">
+          <span class="tag">Тренд</span>
+        </div>
+        <div class="product-body">
+          <h3>Спортивные костюмы</h3>
+          <p>Яркие цвета, удобная посадка</p>
+          <div class="product-footer">
+            <span class="price">4 990 ₽</span>
+            <button class="btn btn-small" type="button" data-add="Спортивные костюмы">В корзину</button>
+          </div>
+        </div>
+      </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. БЛОК С КНОПКОЙ ДЕЙСТВИЯ ===== -->
+  <section class="section reveal" id="order">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Обновите гардероб</h2>
+        <p>Закажите сейчас — доставка по городу бесплатно!</p>
+        <button class="btn btn-light" type="button" data-order="">Купить</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. КОНТАКТЫ ===== -->
+  <section class="section section-alt reveal" id="contacts">
+    <div class="container">
+      <div class="section-head">
+        <span class="label">Контакты</span>
+        <h2 class="section-title">Свяжитесь с нами</h2>
+        <p>Поможем подобрать размер и собрать образ — просто напишите нам!</p>
+      </div>
+      <div class="contacts-grid">
+        <a class="contact-card" href="tel:+79002223344"><span class="contact-icon">📞</span><span><small>Телефон</small><b>+7 (900) 222-33-44</b></span></a>
+        <a class="contact-card" href="mailto:style@example.com"><span class="contact-icon">✉️</span><span><small>Почта</small><b>style@example.com</b></span></a>
+        <div class="contact-card"><span class="contact-icon">📍</span><span><small>Адрес</small><b>г. Москва, Модный проспект, 15</b></span></div>
+        <div class="contact-card"><span class="contact-icon">🕒</span><span><small>Часы работы</small><b>Ежедневно 10:00–21:00</b></span></div>
+      </div>
+      <div class="contacts-bottom">
+        <a class="social social-vk" href="https://vk.com/" target="_blank" rel="noopener" data-tip="ВКонтакте">VK</a>
+        <a class="social social-max" href="https://max.ru/" target="_blank" rel="noopener" data-tip="Мессенджер MAX">MAX</a>
+        <button class="btn" type="button" data-order="">Купить</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">© <span id="year">2026</span> «<span data-lab="name">Urban Style</span>». Учебный сайт: все контакты вымышленные.</div>
+</footer>
+
+<!-- ===== ОКНО ЗАКАЗА (появляется по кнопке) ===== -->
+<div class="modal" id="modal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" type="button" data-close aria-label="Закрыть">✕</button>
+    <h3 id="modalTitle">Оформить заказ</h3>
+    <p class="modal-text">Оставьте имя и телефон — мы перезвоним через 5 минут.</p>
+    <form id="orderForm" novalidate>
+      <div class="field">
+        <input id="clientName" type="text" placeholder=" " autocomplete="name">
+        <label for="clientName">Ваше имя</label>
+      </div>
+      <div class="field">
+        <input id="clientPhone" type="tel" placeholder=" " autocomplete="tel">
+        <label for="clientPhone">Телефон</label>
+      </div>
+      <div class="field">
+        <select id="product">
+          <option>Худи</option>
+          <option>Кроссовки</option>
+          <option>Спортивные костюмы</option>
+        </select>
+        <label for="product">Что заказать</label>
+      </div>
+      <button class="btn btn-wide" type="submit">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<!-- Всплывающее сообщение внизу экрана -->
+<div class="toast" id="toast" role="status"></div>
